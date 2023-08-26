@@ -60,7 +60,7 @@ export async function toHTMLCanvasElementLossy(
  *
  * @returns Converted ImageData.
  */
-export async function toImageDataLossy(image: CanvasImageSource|
+export async function toImageDataLossy(image: HTMLImageElement|HTMLCanvasElement|
                                        tf.Tensor3D): Promise<ImageData> {
   if (image instanceof tf.Tensor) {
     const [height, width] = image.shape.slice(0, 2);
@@ -86,7 +86,7 @@ export async function toImageDataLossy(image: CanvasImageSource|
  *
  * @returns Converted Tensor.
  */
-export async function toTensorLossy(image: CanvasImageSource|
+export async function toTensorLossy(image: HTMLCanvasElement|
                                     ImageData): Promise<tf.Tensor3D> {
   const pixelsInput =
       (image instanceof SVGImageElement || image instanceof OffscreenCanvas) ?
